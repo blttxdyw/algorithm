@@ -17,6 +17,33 @@ typedef struct ListNode
 }listnode, *linklist;
 
 
+
+/*
+给出两个 非空 的链表用来表示两个非负的整数。其中它们各自的位数是按照 逆序 的方式存储的,
+并且它们的每个节点只能存储 一位 数字。
+
+如果我们将这两个数相加起来,则会返回一个新的链表来表示它们的和。
+
+您可以假设除了数字 0 之外,这两个数都不会以 0 开头。
+
+示例:
+
+输入 (2 -> 4 -> 3) + (5 -> 6 -> 4)
+输出 7 -> 0 -> 8
+原因 342 + 465 = 807
+
+题目来源:力扣<<LeetCode>>
+链接:https://leetcode-cn.com/problems
+著作权归领扣网络所有。商业转载请联系官方授权,非商业转载请注明出处。
+*/
+
+
+/*****************************************************
+@funtion: addTwoNumbers
+@description: sum of  two list node element
+@param: l1 and l2 is the lists will add
+@return: a new list
+****************************************************/
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 {
 	int temp = 0;
@@ -28,10 +55,10 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
     {
     	cur->next = (linklist)malloc(sizeof(listnode));
     	cur = cur->next;
-    	l1 = l1 ? (temp+=l1->data, l1->next) : l1;
-    	l2 = l2 ? (temp+=l2->data, l2->next) : l2;
+    	l1 = l1 ? (temp += l1->data, l1->next) : l1;
+    	l2 = l2 ? (temp += l2->data, l2->next) : l2;
     	cur->data = temp % 10;//取个位数
-    	temp /= 10;//取十位数
+    	temp /= 10;//取十位数,下次和剩余的数相加,相对于向前进一位
     }
     cur->next = l1 ? l2 : l1;
     return head;

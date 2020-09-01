@@ -8,6 +8,23 @@ struct ListNode {
 #include <stdio.h>
 #include <stdlib.h>
 
+
+/*
+将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+
+示例:
+
+输入:1->2->4, 1->3->4
+输出:1->1->2->3->4->4
+将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+
+题目来源:力扣<<LeetCode>>
+链接:https://leetcode-cn.com/problems
+著作权归领扣网络所有。商业转载请联系官方授权,非商业转载请注明出处。
+*/
+
+
+
 typedef int datatype;
 
 typedef struct ListNode
@@ -17,6 +34,12 @@ typedef struct ListNode
 }listnode, *linklist;
 
 
+/*****************************************************
+@funtion: mergeTwoLists
+@description: merge two lists
+@param: l1 and l2 is the lists will merge
+@return: merged list
+****************************************************/
 struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2)
 {
 	linklist head = NULL;
@@ -36,8 +59,6 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2)
 		{
 			res->next = l1;
 			l1 = l1->next;
-			printf("23443\n");
-
 		}
 		else
 		{
@@ -51,6 +72,12 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2)
 }
 
 
+/*****************************************************
+@funtion: list_show
+@description: show the  linklist H 
+@param: H is the linklist will show
+@return: none
+****************************************************/
 void list_show(linklist H)
 {
 	while(H->next)
@@ -61,7 +88,14 @@ void list_show(linklist H)
 	printf("\n");
 }
 
-linklist linklist_create()
+
+/*****************************************************
+@funtion: linklist_create
+@description: create a linklist  
+@param: nonde
+@return: a new linklist
+****************************************************/
+linklist linklist_create(void)
 {
 	linklist H, r, p;
 	datatype value;
